@@ -33,6 +33,4 @@ jobs:
 
       - name: 'test access to remote host'
         run: |
-          sudo apt-get update
-          sudo apt-get install -y mysql-client
-          mysqladmin ping -h 127.0.0.1 -P 3306 --protocol=tcp --silent || echo "MySQL server is not reachable on localhost:3306"
+          mysqladmin ping -h localhost -P 3306 || echo "failed"
