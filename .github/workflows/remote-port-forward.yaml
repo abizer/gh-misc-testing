@@ -6,7 +6,10 @@ on:
       - master
 
 jobs:
-  run-migrations:
+  test-remote-port-forward:
+    permissions:
+      id-token: write 
+      contents: read  
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
