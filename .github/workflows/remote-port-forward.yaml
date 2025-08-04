@@ -27,7 +27,7 @@ jobs:
           session-manager-plugin
           session-manager-plugin --version
 
-      - name: 'Start SSM Port Forwarding'
+      - name: 'Port Forward and Test MySQL Access'
         uses: abizer/aws-ssm-remote-port-forward-action@master
         with:
           target: 'i-0438c7a84ef72d148'
@@ -35,11 +35,4 @@ jobs:
           local-port: '3306'
           remote-port: '3306'
           aws-region: 'us-west-2'
-
-      - name: 'list sessions'
-        run: |
-          aws ssm describe-sessions --state Active
-
-      - name: 'test access to remote host'
-        run: |
-          mysqladmin ping -h 127.0.0.1 -P 3306 --protocol=tcp
+          command: 'mysqladmin ping -h 127.0.0.1 -P 3306 --protocol=tcp'
