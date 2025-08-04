@@ -36,6 +36,10 @@ jobs:
           remote-port: '3306'
           aws-region: 'us-west-2'
 
+      - name: 'list sessions'
+        run: |
+          aws ssm describe-sessions --state Active --output text
+
       - name: 'test access to remote host'
         run: |
           mysqladmin ping -h 127.0.0.1 -P 3306 --protocol=tcp || echo "failed"
