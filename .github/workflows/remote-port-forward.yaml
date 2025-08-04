@@ -38,8 +38,8 @@ jobs:
 
       - name: 'list sessions'
         run: |
-          aws ssm describe-sessions --state Active --output text
+          aws ssm describe-sessions --state Active
 
       - name: 'test access to remote host'
         run: |
-          mysqladmin ping -h 127.0.0.1 -P 3306 --protocol=tcp || echo "failed"
+          mysqladmin ping -h 127.0.0.1 -P 3306 --protocol=tcp
