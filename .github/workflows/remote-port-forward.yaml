@@ -27,7 +27,7 @@ jobs:
           aws-region: us-west-2
 
       - name: 'Port Forward and Test MySQL Access'
-        uses: abizer/aws-ssm-remote-port-forwarding-action@abizer-fixes
+        uses: abizer/aws-ssm-remote-port-forwarding-action@main
         with:
           target: i-0438c7a84ef72d148
           host: remote-pf-test.cluster-ctaq0o0wg3mj.us-west-2.rds.amazonaws.com
