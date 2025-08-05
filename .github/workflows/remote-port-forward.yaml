@@ -27,11 +27,13 @@ jobs:
           aws-region: us-west-2
 
       - name: 'Port Forward and Test MySQL Access'
-        uses: abizer/aws-ssm-remote-port-forward-action@master
+        uses: abizer/aws-ssm-remote-port-forwarding-action@abizer-fixes
         with:
-          target: 'i-0438c7a84ef72d148'
-          host: 'remote-pf-test.cluster-ctaq0o0wg3mj.us-west-2.rds.amazonaws.com'
-          local-port: '3306'
-          remote-port: '3306'
-          aws-region: 'us-west-2'
-          command: 'bash test-cwd/test_script.sh'
+          target: i-0438c7a84ef72d148
+          host: remote-pf-test.cluster-ctaq0o0wg3mj.us-west-2.rds.amazonaws.com
+          port: 3306
+          local-port: 3306
+
+      - name: test
+        run: |
+          mysqladmin ping -h 127.0.0.1 -P 3306 --protocol=tcp -u admin -p 
