@@ -5,6 +5,10 @@ on:
     branches:
       - master
 
+defaults:
+  run:
+    working-directory: test-cwd
+
 jobs:
   test-remote-port-forward:
     permissions:
@@ -35,4 +39,4 @@ jobs:
           local-port: '3306'
           remote-port: '3306'
           aws-region: 'us-west-2'
-          command: 'mysqladmin ping -h 127.0.0.1 -P 3306 --protocol=tcp -u admin -p'
+          command: 'bash -c test_script.sh'
