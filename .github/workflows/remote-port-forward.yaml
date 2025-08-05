@@ -34,4 +34,4 @@ jobs:
           local-port: '3306'
           remote-port: '3306'
           aws-region: 'us-west-2'
-          command: 'bash -c test-cwd/test_script.sh'
+          command: 'bash test-cwd/test_script.sh'
