@@ -28,7 +28,7 @@ jobs:
           session-manager-plugin --version
 
       - name: 'Port Forward and Test MySQL Access'
-        uses: abizer/aws-ssm-remote-port-forward-action@v1
+        uses: abizer/aws-ssm-remote-port-forward-action@master
         with:
           target: 'i-0438c7a84ef72d148'
           host: 'remote-pf-test.cluster-ctaq0o0wg3mj.us-west-2.rds.amazonaws.com'
