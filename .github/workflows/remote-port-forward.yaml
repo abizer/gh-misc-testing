@@ -25,11 +25,6 @@ jobs:
           role-to-assume: arn:aws:iam::398361073441:role/GithubAction-AssumeRoleWithAction 
           role-session-name: GitHubActions-RemotePortForward
           aws-region: us-west-2
-      
-      - name: 'test session-manager-plugin'
-        run: |
-          session-manager-plugin
-          session-manager-plugin --version
 
       - name: 'Port Forward and Test MySQL Access'
         uses: abizer/aws-ssm-remote-port-forward-action@master
@@ -39,4 +34,4 @@ jobs:
           local-port: '3306'
           remote-port: '3306'
           aws-region: 'us-west-2'
-          command: 'bash -c test_script.sh'
+          command: 'bash -c test-cwd/test_script.sh'
